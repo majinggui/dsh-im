@@ -634,10 +634,10 @@ test('all nine failed save RPCs keep runtime state and drafts intact through sta
 
 test('the approved neutral entry and theme-aware modal keep responsive labels and touch targets', async () => {
   const styles = await readFile(new URL('../plugin-src/client/styles.js', import.meta.url), 'utf8');
-  assert.match(styles, /\.dim-contextEntry \{[^}]*min-height: 40px;[^}]*minmax\(0, 1fr\)[^}]*border-radius: 8px;[^}]*font-size: 13px;/);
+  assert.match(styles, /\.dim-contextEntry \{[^}]*min-height: 40px;[^}]*minmax\(0, 1fr\)[^}]*border-radius: var\(--dsw-radius-sm, 8px\);[^}]*font-size: 13px;/);
   assert.match(styles, /\.dim-contextStatus\[data-active="true"\] \{[^}]*--dsw-alias-state-business-primary/);
-  assert.match(styles, /\.dim-contextDialog \{[^}]*width: min\(450px, 100%\);[^}]*overflow-y: auto;[^}]*border-radius: 12px;[^}]*--dsw-alias-bg-layer-3/);
-  assert.match(styles, /\.dim-contextTabs \{[^}]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\);[^}]*border-radius: 8px;/);
+  assert.match(styles, /\.dim-contextDialog \{[^}]*width: min\(450px, 100%\);[^}]*overflow-y: auto;[^}]*border-radius: var\(--dsw-radius-md, 12px\);[^}]*--dsw-alias-bg-layer-3/);
+  assert.match(styles, /\.dim-contextTabs \{[^}]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\);[^}]*border-radius: var\(--dsw-radius-sm, 8px\);/);
   assert.match(styles, /\.dim-contextTab\[aria-selected="true"\] \{[^}]*--dsw-alias-state-business-primary[^}]*box-shadow:/);
   assert.match(styles, /\.dim-contextTabPanel\[hidden\] \{[^}]*display: none;/);
   assert.match(styles, /\.dim-contextFields \{[^}]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);

@@ -8,12 +8,12 @@ const CSS = String.raw`
 .dim-accountSettingsTitle { margin: 0 0 8px; font-size: 12px; font-weight: 600; color: var(--dsw-alias-label-secondary, #646a73); letter-spacing: 0.02em; }
 .dim-accountSettingsRow { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 40px; cursor: pointer; }
 .dim-accountSettingsText { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-.dim-accountSettingsLabel { font-size: 13px; font-weight: 500; color: var(--dsw-alias-label, #1f2329); }
+.dim-accountSettingsLabel { font-size: 13px; font-weight: 500; color: var(--dsw-alias-label-primary, #1f2329); }
 .dim-accountSettingsHelp { font-size: 12px; color: var(--dsw-alias-label-tertiary, #8a919f); }
-.dim-accountSettingsSwitch { appearance: none; flex: none; width: 32px; height: 19px; margin: 0; border: 1px solid var(--dsw-alias-border-l2, #dfe1e5); border-radius: 12px; background: var(--dsw-alias-interactive-bg-hover, #eef0f3); cursor: pointer; position: relative; }
+.dim-accountSettingsSwitch { appearance: none; flex: none; width: 32px; height: 19px; margin: 0; border: 1px solid var(--dsw-alias-border-l2, #dfe1e5); border-radius: var(--dsw-radius-md, 12px); background: var(--dsw-alias-interactive-bg-hover, #eef0f3); cursor: pointer; position: relative; }
 .dim-accountSettingsSwitch::before { content: ""; position: absolute; top: 2px; left: 2px; width: 13px; height: 13px; border-radius: 50%; background: var(--dsw-alias-label-secondary, #646a73); transition: transform 120ms ease, background 120ms ease; }
 .dim-accountSettingsSwitch:checked { border-color: #229ed9; background: #229ed9; }
-.dim-accountSettingsSwitch:checked::before { transform: translateX(13px); background: #fff; }
+.dim-accountSettingsSwitch:checked::before { transform: translateX(13px); background: var(--dsw-alias-switch-thumb, #fff); }
 .dim-accountSettingsSwitch:disabled { opacity: 0.5; cursor: not-allowed; }
 @media (prefers-reduced-motion: reduce) { .dim-accountSettingsSwitch::before { transition: none; } }
 `;

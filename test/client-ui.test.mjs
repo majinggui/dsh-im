@@ -770,7 +770,7 @@ test('credential binding is a distinct secondary action beside QR binding in fou
 
   const styles = await readFile(STYLES_URL, 'utf8');
   assert.match(styles, /\.dim-panel \.dim-bindActions \{[^}]*flex-wrap: nowrap;/);
-  assert.match(styles, /\.dim-panel \.dim-credentialButton \{[^}]*border: 1px solid #86909c;[^}]*background: var\(--dsw-alias-bg-layer-1, #fff\)/);
+  assert.match(styles, /\.dim-panel \.dim-credentialButton \{[^}]*border: 1px solid var\(--dsw-alias-border-l3, #86909c\);[^}]*background: var\(--dsw-alias-bg-layer-1, #fff\)/);
   assert.match(styles, /\.dim-panel \.dim-actionIcon \{[^}]*flex: 0 0 15px;/);
   assert.doesNotMatch(styles, /\.dim-panel \.dim-credentialPanel \{[^}]*border-left:/);
 });
@@ -901,7 +901,7 @@ test('scan actions align left while online totals align right in every channel',
   }
   assert.doesNotMatch(weixinHeading, /dxw-dot/);
   assert.doesNotMatch(dingtalkHeading, /ddt-dot/);
-  assert.match(imStyles, /\.dim-panel \.bxf-headingTools \.dim-scanButton,[^}]*border: 1px solid #1677ff;[^}]*border-radius: 8px;[^}]*background: #1677ff;[^}]*box-shadow: none;/);
+  assert.match(imStyles, /\.dim-panel \.bxf-headingTools \.dim-scanButton,[^}]*border: 1px solid var\(--dsw-alias-state-business-primary, #1677ff\);[^}]*border-radius: var\(--dsw-radius-sm, 8px\);[^}]*background: var\(--dsw-alias-state-business-primary, #1677ff\);[^}]*box-shadow: none;/);
   assert.match(imStyles, /\.dim-panel \.bxf-headingTools \.dim-onlineBadge,[^}]*border-radius: 999px;[^}]*background: var\(--dsw-alias-bg-module-platform, #f2f3f5\);[^}]*font-size: 12px;/);
 });
 
@@ -980,11 +980,11 @@ test('all channel settings states use the DingTalk page treatment', async () => 
   assert.match(styles, /\.dim-panel \.dim-channelPage \{[^}]*flex-direction: column;[^}]*gap: 12px;/);
   assert.match(styles, /\.dim-panel \.dim-listHeading \{[^}]*margin: 0 0 6px;/);
   assert.match(styles, /\.dim-panel \.dim-botList \{[^}]*gap: 8px;/);
-  assert.match(styles, /\.dim-panel \.dim-surfaceCard \{[^}]*border-radius: 14px;[^}]*box-shadow: 0 1px 2px/);
+  assert.match(styles, /\.dim-panel \.dim-surfaceCard \{[^}]*border-radius: var\(--dsw-radius-lg, 14px\);[^}]*box-shadow: var\(--dsw-shadow-lv1, 0 1px 2px/);
   assert.match(styles, /\.dim-panel \.dim-loadingView \{[^}]*padding: 38px;[^}]*text-align: center;/);
   assert.match(styles, /\.dim-panel \.dim-emptyView \{[^}]*grid-template-columns: minmax\(0, 1fr\) 180px;[^}]*gap: 30px;/);
   assert.match(styles, /\.dim-panel \.dim-qrLayout \{[^}]*grid-template-columns: 300px minmax\(0, 1fr\);[^}]*gap: 34px;[^}]*align-items: start;/);
-  assert.match(styles, /\.dim-panel \.dim-viewActions \.bxf-button,[^}]*min-height: 34px;[^}]*border-radius: 8px;[^}]*font-size: 13px;/);
+  assert.match(styles, /\.dim-panel \.dim-viewActions \.bxf-button,[^}]*min-height: 34px;[^}]*border-radius: var\(--dsw-radius-sm, 8px\);[^}]*font-size: 13px;/);
   assert.match(styles, /\.dim-panel \.dim-inlineError \{[^}]*padding: 22px;[^}]*background:/);
   assert.match(styles, /\.dim-panel \.dim-confirm \{[^}]*padding: 18px 24px;[^}]*border-top: 1px solid/);
 });
@@ -1111,7 +1111,7 @@ test('all IM channel cards keep localized actions visible above full-width feedb
   assert.match(imStyles, /\.dim-panel \.dim-cardFooterLayout > \.dim-cardActions \{[^}]*align-self: stretch;/);
   assert.match(imStyles, /\.dim-panel \.dim-cardActions \{[^}]*width: 100%;[^}]*justify-content: flex-end;[^}]*flex-wrap: wrap;/);
   assert.match(imStyles, /\.dim-panel \.dim-cardFeedback \{[^}]*width: 100%;[^}]*overflow-wrap: anywhere;[^}]*white-space: normal;/);
-  assert.match(imStyles, /\.dim-panel \.dim-cardActions \.dim-cardAction \{[^}]*min-height: 32px;[^}]*border-radius: 8px;[^}]*font-size: 13px;/);
+  assert.match(imStyles, /\.dim-panel \.dim-cardActions \.dim-cardAction \{[^}]*min-height: 32px;[^}]*border-radius: var\(--dsw-radius-sm, 8px\);[^}]*font-size: 13px;/);
   assert.match(imStyles, /\.dim-panel \.dim-cardActions \.dim-cardAction\[data-kind="danger"\] \{[^}]*#d54941/);
 
   const account = {
@@ -1160,10 +1160,10 @@ test('all IM channel cards keep localized actions visible above full-width feedb
 test('all channel bot cards use the DingTalk card treatment', async () => {
   const styles = await readFile(STYLES_URL, 'utf8');
 
-  assert.match(styles, /\.dim-panel \.dim-botCard \{[^}]*border-radius: 14px;[^}]*background: var\(--dsw-alias-bg-layer-1, #fff\);[^}]*box-shadow: 0 1px 2px/);
+  assert.match(styles, /\.dim-panel \.dim-botCard \{[^}]*border-radius: var\(--dsw-radius-lg, 14px\);[^}]*background: var\(--dsw-alias-bg-layer-1, #fff\);[^}]*box-shadow: var\(--dsw-shadow-lv1, 0 1px 2px/);
   assert.match(styles, /\.dim-panel \.dim-botCardBody \{[^}]*padding: 12px 8px;/);
   assert.match(styles, /\.dim-panel \.dim-botCardTop \{[^}]*align-items: flex-start;[^}]*gap: 6px;/);
-  assert.match(styles, /\.dim-panel \.dim-botAvatar \{[^}]*width: 38px;[^}]*height: 38px;[^}]*border-radius: 11px;/);
+  assert.match(styles, /\.dim-panel \.dim-botAvatar \{[^}]*width: 38px;[^}]*height: 38px;[^}]*border-radius: var\(--dsw-radius-md, 11px\);/);
   assert.match(styles, /\.dim-panel \.dim-botName h3 \{[^}]*font-size: 15px;/);
   assert.match(styles, /\.dim-panel \.dim-botHealthGroup \{[^}]*display: grid;[^}]*justify-items: end;[^}]*gap: 5px;/);
   assert.match(styles, /\.dim-panel \.dim-botCard \.dim-botHealth \{[^}]*background: transparent;[^}]*font-size: 12px;[^}]*font-weight: 400;/);

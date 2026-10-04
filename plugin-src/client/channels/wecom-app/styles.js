@@ -5,8 +5,8 @@ const CSS = String.raw`
 .dwecomapp-avatar, .dwecomapp-brand { color: #07c160; background: #fff; border: 1px solid var(--dsw-alias-border-l2, #e5e6eb); }
 .dwecomapp-avatar svg, .dwecomapp-brand svg { display: block; }
 .dim-appFieldGrid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-.dim-callbackBox { display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; border: 1px dashed var(--dsw-alias-border-l2, #e5e6eb); border-radius: 8px; }
-.dim-callbackBox strong { font-size: 12px; color: var(--dsw-alias-text-secondary, #646a73); }
+.dim-callbackBox { display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; border: 1px dashed var(--dsw-alias-border-l2, #e5e6eb); border-radius: var(--dsw-radius-sm, 8px); }
+.dim-callbackBox strong { font-size: 12px; color: var(--dsw-alias-label-secondary, #646a73); }
 .dim-callbackRow { display: flex; gap: 8px; align-items: center; }
 .dim-callbackRow input { flex: 1 1 auto; min-width: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
 .dim-appSwitchRow { display: flex; align-items: center; gap: 8px; font-size: 13px; }

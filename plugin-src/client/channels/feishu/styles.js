@@ -85,7 +85,7 @@ const CSS = String.raw`
   position: relative;
   overflow: hidden;
   border: 1px solid var(--dsw-alias-border-l2, #dee0e3);
-  border-radius: 14px;
+  border-radius: var(--dsw-radius-lg, 14px);
   background: var(--dsw-alias-bg-layer-3, #fff);
   box-shadow: var(--dsw-shadow-lv1, 0 3px 12px rgba(31, 35, 41, .05));
 }
@@ -190,7 +190,7 @@ const CSS = String.raw`
   justify-content: center;
   gap: 7px;
   border: 1px solid var(--dsw-alias-border-l2, #dee0e3);
-  border-radius: 8px;
+  border-radius: var(--dsw-radius-sm, 8px);
   padding: 7px 13px;
   color: var(--dsw-alias-label-primary, #1f2329);
   background: var(--dsw-alias-bg-layer-1, #fff);
@@ -271,7 +271,7 @@ const CSS = String.raw`
   height: 68px;
   display: grid;
   place-items: center;
-  border-radius: 20px;
+  border-radius: var(--dsw-radius-xl, 20px);
   color: #fff;
   background: var(--bxf-accent);
   box-shadow: 0 12px 28px color-mix(in srgb, var(--bxf-accent) 28%, transparent);
@@ -293,10 +293,10 @@ const CSS = String.raw`
   display: grid;
   place-items: center;
   border: 1px solid var(--dsw-alias-border-l2, #dee0e3);
-  border-radius: 14px;
+  border-radius: var(--dsw-radius-lg, 14px);
   padding: 13px;
   background: #fff;
-  box-shadow: 0 8px 24px rgba(31, 35, 41, .07);
+  box-shadow: var(--dsw-shadow-lv2, 0 8px 24px rgba(31, 35, 41, .07));
 }
 
 .bxf-qrFrame::before, .bxf-qrFrame::after {
@@ -308,7 +308,7 @@ const CSS = String.raw`
   border-style: solid;
 }
 
-.bxf-qrFrame::before { inset: -3px auto auto -3px; border-width: 2px 0 0 2px; border-radius: 5px 0 0; }
+.bxf-qrFrame::before { inset: -3px auto auto -3px; border-width: 2px 0 0 2px; border-radius: var(--dsw-radius-xs, 5px) 0 0; }
 .bxf-qrFrame::after { inset: auto -3px -3px auto; border-width: 0 2px 2px 0; border-radius: 0 0 5px; }
 .bxf-qrFrame img { width: 100%; height: 100%; display: block; object-fit: contain; }
 
@@ -317,22 +317,22 @@ const CSS = String.raw`
   height: 100%;
   display: grid;
   place-items: center;
-  border-radius: 8px;
+  border-radius: var(--dsw-radius-sm, 8px);
   color: var(--bxf-accent);
-  background: #f7f9ff;
+  background: color-mix(in srgb, var(--dsw-alias-state-business-primary, #3370ff) 5%, var(--dsw-alias-bg-layer-1, #fff));
   text-align: center;
   padding: 20px;
 }
 
-.bxf-qrFallback span { display: block; color: #646a73; font-size: 12px; line-height: 18px; margin-top: 8px; }
+.bxf-qrFallback span { display: block; color: var(--dsw-alias-label-secondary, #646a73); font-size: 12px; line-height: 18px; margin-top: 8px; }
 
 .bxf-expiredOverlay {
   position: absolute;
   inset: 10px;
   display: grid;
   place-items: center;
-  border-radius: 9px;
-  color: #1f2329;
+  border-radius: var(--dsw-radius-sm, 9px);
+  color: var(--dsw-alias-label-primary, #1f2329);
   background: rgba(255, 255, 255, .94);
   backdrop-filter: blur(3px);
   font-size: 13px;
@@ -366,7 +366,7 @@ const CSS = String.raw`
 .bxf-orbit::before, .bxf-orbit::after { content: ""; position: absolute; border-radius: 50%; }
 .bxf-orbit::before { inset: 3px; border: 1px solid color-mix(in srgb, var(--bxf-accent) 24%, transparent); animation: bxf-pulse 1.8s var(--ds-ease-in-out, ease) infinite; }
 .bxf-orbit::after { inset: 0; border: 2px solid transparent; border-top-color: var(--bxf-accent); animation: bxf-rotate 1.2s linear infinite; }
-.bxf-orbitCore { width: 50px; height: 50px; display: grid; place-items: center; border-radius: 16px; color: var(--bxf-accent); background: color-mix(in srgb, var(--bxf-accent) 9%, var(--dsw-alias-bg-layer-1, #fff)); }
+.bxf-orbitCore { width: 50px; height: 50px; display: grid; place-items: center; border-radius: var(--dsw-radius-lg, 16px); color: var(--bxf-accent); background: color-mix(in srgb, var(--bxf-accent) 9%, var(--dsw-alias-bg-layer-1, #fff)); }
 .bxf-connecting h3 { font-size: 20px; line-height: 29px; }
 .bxf-connecting p { color: var(--dsw-alias-label-secondary, #646a73); font-size: 13px; line-height: 21px; margin-top: 7px; }
 .bxf-connectingCompact { min-height: 248px; }
@@ -393,7 +393,7 @@ const CSS = String.raw`
 
 .bxf-connectedTop { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .bxf-botIdentity { min-width: 0; display: flex; align-items: center; gap: 13px; }
-.bxf-avatar { flex: none; width: 48px; height: 48px; display: grid; place-items: center; overflow: hidden; border: 1px solid var(--dsw-alias-border-l2, #e5e6eb); border-radius: 14px; background: var(--dsw-alias-bg-layer-1, #fff); box-shadow: 0 1px 3px rgb(31 35 41 / 7%); }
+.bxf-avatar { flex: none; width: 48px; height: 48px; display: grid; place-items: center; overflow: hidden; border: 1px solid var(--dsw-alias-border-l2, #e5e6eb); border-radius: var(--dsw-radius-lg, 14px); background: var(--dsw-alias-bg-layer-1, #fff); box-shadow: var(--dsw-shadow-lv1, 0 1px 3px rgb(31 35 41 / 7%)); }
 .bxf-botName { min-width: 0; }
 .bxf-botName h3 { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 17px; line-height: 24px; font-weight: 650; }
 .bxf-botName p { overflow: hidden; color: var(--dsw-alias-label-tertiary, #8f959e); font-family: var(--ds-font-family-code, monospace); font-size: 12px; line-height: 18px; text-overflow: ellipsis; white-space: nowrap; margin-top: 2px; }
@@ -403,11 +403,11 @@ const CSS = String.raw`
 .bxf-healthPill[data-health="offline"], .bxf-healthPill[data-health="error"] { color: var(--bxf-error); background: color-mix(in srgb, var(--bxf-error) 10%, transparent); }
 
 
-.bxf-responseMode { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr) max-content; align-items: center; column-gap: 10px; row-gap: 5px; margin-top: 6px; padding: 8px 10px; border: 1px solid var(--dsw-alias-border-l1, #eef0f3); border-radius: 9px; background: var(--dsw-alias-bg-module-platform, #f7f8fa); }
+.bxf-responseMode { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr) max-content; align-items: center; column-gap: 10px; row-gap: 5px; margin-top: 6px; padding: 8px 10px; border: 1px solid var(--dsw-alias-border-l1, #eef0f3); border-radius: var(--dsw-radius-sm, 9px); background: var(--dsw-alias-bg-module-platform, #f7f8fa); }
 .bxf-responseModeHeader { display: contents; color: var(--dsw-alias-label-secondary, #646a73); font-size: 12px; line-height: normal; }
 .bxf-responseModeHeader > span:first-child { grid-column: 1; grid-row: 1; white-space: nowrap; }
 .bxf-responseModeStatus { grid-column: 2; grid-row: 1; color: var(--dsw-alias-label-tertiary, #8f959e); font-size: 12px; white-space: nowrap; }
-.bxf-responseModeSelect { min-width: 0; width: 100%; grid-column: 1 / -1; grid-row: 2; height: 32px; padding: 0 30px 0 9px; border: 1px solid var(--dsw-alias-border-l2, #dfe1e5); border-radius: 7px; color: var(--dsw-alias-label-primary, #1f2329); background-color: var(--dsw-alias-bg-layer-1, #fff); font: inherit; font-size: 12px; cursor: pointer; transition: border-color .16s ease, box-shadow .16s ease, background-color .16s ease; }
+.bxf-responseModeSelect { min-width: 0; width: 100%; grid-column: 1 / -1; grid-row: 2; height: 32px; padding: 0 30px 0 9px; border: 1px solid var(--dsw-alias-border-l2, #dfe1e5); border-radius: var(--dsw-radius-sm, 7px); color: var(--dsw-alias-label-primary, #1f2329); background-color: var(--dsw-alias-bg-layer-1, #fff); font: inherit; font-size: 12px; cursor: pointer; transition: border-color .16s ease, box-shadow .16s ease, background-color .16s ease; }
 .bxf-responseModeSelect:hover:not(:disabled) { border-color: color-mix(in srgb, var(--bxf-accent) 45%, var(--dsw-alias-border-l2, #dfe1e5)); }
 .bxf-responseModeSelect:focus-visible { outline: none; border-color: var(--bxf-accent); box-shadow: 0 0 0 2px color-mix(in srgb, var(--bxf-accent) 16%, transparent); }
 .bxf-responseModeSelect:disabled { cursor: not-allowed; opacity: .55; }
@@ -427,10 +427,10 @@ const CSS = String.raw`
 .bxf-botProvision:focus-visible {
   outline: 2px solid color-mix(in srgb, var(--bxf-accent) 75%, transparent);
   outline-offset: 3px;
-  border-radius: 12px;
+  border-radius: var(--dsw-radius-md, 12px);
 }
 .bxf-botProvision > .bxf-provisionCard {
-  border-radius: 11px;
+  border-radius: var(--dsw-radius-md, 11px);
   box-shadow: none;
   background: color-mix(in srgb, var(--bxf-accent) 2.5%, var(--dsw-alias-bg-layer-3, #fff));
 }
@@ -440,7 +440,7 @@ const CSS = String.raw`
   align-items: start;
   gap: 24px;
 }
-.bxf-botProvision .bxf-qrFrame { width: 176px; height: 176px; padding: 10px; border-radius: 11px; }
+.bxf-botProvision .bxf-qrFrame { width: 176px; height: 176px; padding: 10px; border-radius: var(--dsw-radius-md, 11px); }
 .bxf-botProvision .bxf-countdown { width: 176px; }
 .bxf-botProvision .bxf-qrCopy h3 { font-size: 18px; line-height: 26px; }
 .bxf-botProvision .bxf-steps { gap: 8px; margin-top: 14px; }
@@ -465,10 +465,10 @@ const CSS = String.raw`
   gap: 3px;
   padding: 9px 10px;
   border: 1px solid var(--dsw-alias-border-l2, #dfe1e5);
-  border-radius: 8px;
+  border-radius: var(--dsw-radius-sm, 8px);
   color: var(--dsw-alias-label-primary, #1f2329);
   background: var(--dsw-alias-bg-layer-3, #fff);
-  box-shadow: 0 10px 28px rgb(31 35 41 / 16%);
+  box-shadow: var(--dsw-shadow-lv2, 0 10px 28px rgb(31 35 41 / 16%));
   opacity: 0;
   visibility: hidden;
   transform: translateY(3px);
@@ -501,7 +501,7 @@ const CSS = String.raw`
   align-items: center;
   gap: 9px;
   border: 1px solid color-mix(in srgb, var(--bxf-warning) 28%, var(--dsw-alias-border-l2, #dee0e3));
-  border-radius: 10px;
+  border-radius: var(--dsw-radius-md, 10px);
   padding: 9px 11px;
   color: var(--dsw-alias-label-secondary, #646a73);
   background: color-mix(in srgb, var(--bxf-warning) 5%, var(--dsw-alias-bg-layer-1, #fff));
@@ -517,7 +517,7 @@ const CSS = String.raw`
 .bxf-skeletonLine:nth-child(2) { width: 44%; height: 22px; margin-top: 23px; }
 .bxf-skeletonLine:nth-child(3) { width: 72%; margin-top: 14px; }
 .bxf-skeletonLine:nth-child(4) { width: 58%; margin-top: 9px; }
-.bxf-skeletonBox { width: 138px; height: 38px; border-radius: 8px; background: var(--dsw-alias-bg-module-platform, #f2f3f5); margin-top: 28px; }
+.bxf-skeletonBox { width: 138px; height: 38px; border-radius: var(--dsw-radius-sm, 8px); background: var(--dsw-alias-bg-module-platform, #f2f3f5); margin-top: 28px; }
 
 .bxf-visuallyHidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
